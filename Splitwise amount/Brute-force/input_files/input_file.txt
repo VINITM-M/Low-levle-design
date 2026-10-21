@@ -1,0 +1,6 @@
+A, B, C
+
+A 400 Snacks
+B 100 tickets 
+C 100 bus 
+A 400 mvoe

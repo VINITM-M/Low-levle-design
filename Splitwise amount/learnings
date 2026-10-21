@@ -1,0 +1,12 @@
+http://leetcode.com/discuss/post/2154270/low-level-design-of-splitwise-by-intervi-b7db/
+
+https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/splitwise.md
+
+https://github.com/lugriso/Maximum_flow-debt-simplification
+
+https://github.com/nishasinha/Splitwise-Python/blob/master/src/splitwise.py
+
+
+parser = argparse.ArgumentParser(description= 'Split expenses between memebrs. Read input file from command line.')
+
+The argparse module makes it easy to build user-friendly command-line interfaces.
