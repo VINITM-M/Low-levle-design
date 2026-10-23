@@ -10,3 +10,162 @@ https://github.com/nishasinha/Splitwise-Python/blob/master/src/splitwise.py
 parser = argparse.ArgumentParser(description= 'Split expenses between memebrs. Read input file from command line.')
 
 The argparse module makes it easy to build user-friendly command-line interfaces.
+
+self is instance of object , it works inside the methods not outside the methods  
+
+Python internally does something like:
+
+obj = Button.__new__(Button)    # create object
+Button.__init__(obj, 3)         # initialize object
+btn = obj                       # storing the address in that variable 
+
+
+Class
+
+What is a class?
+Why do we create a class?
+How do we define a class?
+What happens when Python reads a class definition?
+Can a class exist without objects?
+Can a class contain variables?
+Can a class contain methods?
+What is stored inside a class?
+How do we access class members?
+What is the relationship between a class and an object?
+
+Object Creation
+
+What is an object?
+Why do we create objects?
+What happens when an object is created?
+What does ClassName() do?
+What is instantiation?
+How many objects can be created from one class?
+Where is an object stored?
+What is a reference variable?
+What does obj = ClassName() mean?
+What happens if an object is created without storing it in a variable?
+
+self
+
+What is self?
+Is self a keyword?
+Who passes self?
+When is self created?
+What does self refer to?
+Why is self needed?
+Can we rename self?
+What is the difference between self.n and n?
+Why do we write self.n = n?
+Where is self.n stored?
+Why can't self be used outside methods?
+Does self exist before object creation?
+How does self identify the correct object?
+What happens when multiple objects exist?
+Does each object have its own self?
+
+init
+
+What is __init__?
+When is __init__ called?
+Who calls __init__?
+Is __init__ mandatory?
+What happens if __init__ is not defined?
+Can __init__ take parameters?
+Why is self the first parameter of __init__?
+Can __init__ return something?
+What is the purpose of __init__?
+What happens inside __init__?
+
+Methods
+
+What is a method?
+How is a method different from a function?
+Why do methods usually have self?
+How are methods stored in a class?
+How do we call a method?
+What happens when a method is called?
+How does Python know which object's method to execute?
+Can a method call another method?
+Can a method modify object data?
+Can a method access all instance variables?
+
+Function Calling
+
+What is a function?
+How do we define a function?
+How do we call a function?
+What are parameters?
+What are arguments?
+What is the difference between parameters and arguments?
+What happens when a function is called?
+Where are local variables stored?
+When are local variables destroyed?
+What happens when a function finishes execution?
+
+Method Calling
+
+What happens internally when obj.method() is executed?
+What happens internally when Class.method(obj) is executed?
+Why is self automatically passed?
+How are arguments passed to methods?
+What happens on the call stack during a method call?
+Can methods return values?
+Can methods return objects?
+What happens when a method returns self?
+Can one object call another object's method?
+What happens when nested method calls occur?
+
+Object References
+
+What is a reference?
+What does a variable store for an object?
+What happens in obj2 = obj1?
+Do obj1 and obj2 point to the same object?
+What happens when one reference modifies object data?
+What happens when one reference is deleted?
+When does an object become unreachable?
+When is an object destroyed?
+What is object identity?
+How can we check whether two references point to the same object?
+
+Advanced Flow
+
+Explain the complete flow of obj = Button(3).
+What happens before __init__ runs?
+What object is passed as self?
+How does Python bind self to an object?
+How does attribute lookup work for self.n?
+How does method lookup work?
+What happens if an attribute is not found?
+How are objects represented in memory?
+How are instance variables stored internally?
+How are method calls resolved internally?
+What happens when an object has no references?
+How does garbage collection know an object is unused?
+Can an object create another object?
+Can one object store another object?
+Explain the full lifecycle: Class Definition → Object Creation → self Binding → Method Call → Object Destruction.
+
+
+Pass values during object creation
+class Directions:
+    def __init__(self, up, down):
+        self.up = up
+        self.down = down
+
+dir = Directions(True, False)
+
+print(dir.up)
+print(dir.down)
+
+Option 2: Fixed default values
+
+class Directions:
+    def __init__(self):
+        self.up = False
+        self.down = False
+
+dir = Directions()
+
+print(dir.up)
