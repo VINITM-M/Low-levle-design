@@ -15,3 +15,29 @@
 # https://github.com/ashishps1/awesome-low-level-design/tree/main/solutions/python/elevatorsystem
 # https://algomaster.io/learn/lld/design-elevator-system
 # https://akhileshmj.medium.com/lld-5-elevator-system-52dca7dde379
+
+
+#perform directions either up or down 
+
+user_direction = input("Enter direction 2, 1: ")
+
+#choose the elevator nearby user and assign to him respective direction 
+
+#update display automatically 
+
+#perform door actions 
+
+#enter the floor number inside the elevator , condition:  > cur or < cur as it's follow, same = no 
+actions 
+
+#weight or limit cases 
+
+# priority specific floor 
+
+# priority specific floor for more waiting time 
+
+#minimize waiting time 
+
+#multiple requests concurrently  
+
+# prevent race condition
