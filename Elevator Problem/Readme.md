@@ -16,6 +16,49 @@ ElevatorSystem: Manages the fleet and delegates dispatching decisions to an assi
 Elevator: Represents an autonomous physical car executing as a Runnable worker.
 RequestProcessingStrategy: Encapsulates floor selection logic (e.g., SCAN, LOOK, FCFS) per elevator.
 
+==================================
+      ELEVATOR SYSTEM
+==================================
+
+Elevator-1 : Floor 1 [IDLE]
+Elevator-2 : Floor 5 [IDLE]
+Elevator-3 : Floor 9 [IDLE]
+
+User at Floor 7 pressed UP
+
+Dispatcher:
+Assigned Elevator-2
+
+Display:
+Elevator-2 moving DOWN
+Current Floor: 5
+Current Floor: 6
+Current Floor: 7
+
+Door Opening...
+Passenger Entered
+
+Enter destination floor: 15
+
+Door Closing...
+
+Elevator-2 moving UP
+Current Floor: 8
+Current Floor: 9
+Current Floor: 10
+Current Floor: 11
+Current Floor: 12
+Current Floor: 13
+Current Floor: 14
+Current Floor: 15
+
+Door Opening...
+Reached Floor 15
+
+Door Closing...
+
+Elevator-2 State -> IDLE
+
 
 
 #perform directions either up or down 
