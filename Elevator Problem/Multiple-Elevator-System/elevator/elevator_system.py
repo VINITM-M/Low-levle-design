@@ -6,6 +6,8 @@ from elevator.elevator import Elevator
 from actions.directions import Direction
 from request.request_source import RequestSource 
 from request.request import Request 
+import sys 
+
 class ElevatorSystem: 
 
     def __init__(self, num_elevators: int):
@@ -18,8 +20,9 @@ class ElevatorSystem:
         
         for i in range(1, num_elevators + 1):
             elevator = Elevator(i)
-            elevator.add_observer(display)  # Attach the observer
             elevator_list.append(elevator)
+            elevator.add_observer(display)  # Attach the observer
+           
         
         self.elevators = {elevator.get_id(): elevator for elevator in elevator_list} 
         self._initialized = True
@@ -45,3 +48,15 @@ class ElevatorSystem:
             selected_elevator.add_request(request)
         else:
             print("System busy, please wait.")
+
+    # INTERNAL Request (Cabin Call)
+    def select_floor(self, elevator_id: int, destination_floor: int):
+
+        print(f"\n>> INTERNAL Request: User in Elevator {elevator_id} selected floor {destination_floor}")
+        request = Request(destination_floor, Direction.IDLE, RequestSource.INTERNAL)
+
+        elevator = self.elevators.get(elevator_id)
+        if elevator:
+            elevator.add_request(request)
+        else:
+            print("Invalid elevator ID.", file=sys.stderr)

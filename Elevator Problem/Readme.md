@@ -10,11 +10,12 @@
 # waiting time 
 # concurency 
 
+https://github.com/Yeagerist0/elevatorlld/blob/main/src/Main.java
+https://github.com/atul-X/lld-problem/tree/master/src/elevatordesign
+ElevatorSystem: Manages the fleet and delegates dispatching decisions to an assignment strategy.
+Elevator: Represents an autonomous physical car executing as a Runnable worker.
+RequestProcessingStrategy: Encapsulates floor selection logic (e.g., SCAN, LOOK, FCFS) per elevator.
 
-# https://www.geeksforgeeks.org/system-design/elevator-system-low-level-design-lld/
-# https://github.com/ashishps1/awesome-low-level-design/tree/main/solutions/python/elevatorsystem
-# https://algomaster.io/learn/lld/design-elevator-system
-# https://akhileshmj.medium.com/lld-5-elevator-system-52dca7dde379
 
 
 #perform directions either up or down 

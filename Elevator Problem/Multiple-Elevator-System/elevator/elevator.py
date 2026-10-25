@@ -60,6 +60,16 @@ class Elevator:
        # --- Getters and Setters ---
     def get_id(self) -> int:
         return self.id
+
+    def get_up_requests(self) -> Set[int]:
+        return self.up_requests
+
+    def get_down_requests(self) -> Set[int]:
+        return self.down_requests
+
+    def is_elevator_running(self) -> bool:
+        return self.is_running
+
     
     def run(self):
 

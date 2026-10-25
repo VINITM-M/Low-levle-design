@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from actions.directions import Direction
 from request.request import Request
+
 class ElevatorState(ABC):
     @abstractmethod
     def move(self, elevator):
@@ -33,8 +34,7 @@ class IdleState(ElevatorState):
     def get_direction(self) -> Direction:
         return Direction.IDLE
 
-class MovingUpState():
-
+class MovingUpState(ElevatorState):
     def move(self, elevator):
         if not elevator.get_up_requests():
             elevator.set_state(IdleState())
@@ -48,15 +48,33 @@ class MovingUpState():
             elevator.get_up_requests().remove(next_floor)
 
         if not elevator.get_up_requests():
-            elevator.set_state(IdleState()) 
+            elevator.set_state(IdleState())
 
-class MovingDownState():
+    def add_request(self, elevator, request: Request):
+        # Internal requests always get added to the appropriate queue
+        if request.source == RequestSource.INTERNAL:
+            if request.target_floor > elevator.get_current_floor():
+                elevator.get_up_requests().add(request.target_floor)
+            else:
+                elevator.get_down_requests().add(request.target_floor)
+            return
 
+        # External requests
+        if request.direction == Direction.UP and request.target_floor >= elevator.get_current_floor():
+            elevator.get_up_requests().add(request.target_floor)
+        elif request.direction == Direction.DOWN:
+            elevator.get_down_requests().add(request.target_floor)
+
+    def get_direction(self) -> Direction:
+        return Direction.UP
+    
+
+class MovingDownState(ElevatorState):
     def move(self, elevator):
         if not elevator.get_down_requests():
             elevator.set_state(IdleState())
             return
-        
+
         next_floor = max(elevator.get_down_requests())
         elevator.set_current_floor(elevator.get_current_floor() - 1)
 
@@ -67,3 +85,20 @@ class MovingDownState():
         if not elevator.get_down_requests():
             elevator.set_state(IdleState())
 
+    def add_request(self, elevator, request: Request):
+        # Internal requests always get added to the appropriate queue
+        if request.source == RequestSource.INTERNAL:
+            if request.target_floor > elevator.get_current_floor():
+                elevator.get_up_requests().add(request.target_floor)
+            else:
+                elevator.get_down_requests().add(request.target_floor)
+            return
+
+        # External requests
+        if request.direction == Direction.DOWN and request.target_floor <= elevator.get_current_floor():
+            elevator.get_down_requests().add(request.target_floor)
+        elif request.direction == Direction.UP:
+            elevator.get_up_requests().add(request.target_floor)
+
+    def get_direction(self) -> Direction:
+        return Direction.DOWN
