@@ -1,12 +1,6 @@
-class Directions: 
+from enum import Enum
 
-    def __init__(self, direction) : 
-
-        if direction.upper() == 'UP':
-            UP = "UP"
-
-        elif direction.upper() = "DOWN" : 
-            DOWNN = "DOWN"
-
-        else:
-            IDLE = "IDLE"
+class Direction(Enum):
+    UP = "UP"
+    DOWN = "DOWN"
+    IDLE = "IDLE"
